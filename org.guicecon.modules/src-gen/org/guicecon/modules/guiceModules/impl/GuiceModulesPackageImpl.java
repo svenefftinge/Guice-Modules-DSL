@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.guicecon.modules.guiceModules.impl;
 
@@ -15,8 +12,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.xtext.common.types.TypesPackage;
 
 import org.eclipse.xtext.xbase.XbasePackage;
-
-import org.eclipse.xtext.xtype.XtypePackage;
 
 import org.guicecon.modules.guiceModules.AnnotationRef;
 import org.guicecon.modules.guiceModules.Binding;
@@ -118,7 +113,6 @@ public class GuiceModulesPackageImpl extends EPackageImpl implements GuiceModule
     isInited = true;
 
     // Initialize simple dependencies
-    XtypePackage.eINSTANCE.eClass();
     XbasePackage.eINSTANCE.eClass();
 
     // Create package meta-data objects
@@ -420,7 +414,7 @@ public class GuiceModulesPackageImpl extends EPackageImpl implements GuiceModule
 
     initEClass(keyEClass, Key.class, "Key", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getKey_Annotation(), this.getAnnotationRef(), null, "annotation", null, 0, 1, Key.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getKey_Type(), theTypesPackage.getJvmParameterizedTypeReference(), null, "type", null, 0, 1, Key.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getKey_Type(), theTypesPackage.getJvmTypeReference(), null, "type", null, 0, 1, Key.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(annotationRefEClass, AnnotationRef.class, "AnnotationRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAnnotationRef_Annotation(), theTypesPackage.getJvmAnnotationType(), null, "annotation", null, 0, 1, AnnotationRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

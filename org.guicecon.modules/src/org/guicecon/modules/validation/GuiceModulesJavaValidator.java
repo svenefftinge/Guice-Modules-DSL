@@ -102,13 +102,13 @@ public class GuiceModulesJavaValidator extends AbstractGuiceModulesJavaValidator
 	
 	@Check
 	public void checkBoundTypes(Binding binding) {
-		JvmParameterizedTypeReference expectedType = binding.getFrom().getType();
+		JvmTypeReference expectedType = binding.getFrom().getType();
 		if (binding.getToInstance()!=null) {
-			JvmTypeReference type = typeProvider.getType(binding.getToInstance());
-			if (Void.class.getName().equals(type.getIdentifier()) || Void.TYPE.getName().equals(type.getIdentifier())) {
-				error("The expression must not be of type "+type.getIdentifier(), binding.getToInstance(), null,null);
+			JvmTypeReference instanceType = typeProvider.getType(binding.getToInstance());
+			if (Void.class.getName().equals(instanceType.getIdentifier()) || Void.TYPE.getName().equals(instanceType.getIdentifier())) {
+				error("The expression must not be of type "+instanceType.getIdentifier(), binding.getToInstance(), null,null);
 			} else {
-				checkCompatibility(expectedType, type, binding.getToInstance());
+				checkCompatibility(expectedType, instanceType, binding.getToInstance());
 			}
 		} else {
 			checkCompatibility(expectedType, binding.getTo().getType(), binding.getTo().getType());

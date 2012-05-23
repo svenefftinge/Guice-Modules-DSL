@@ -19,5 +19,6 @@ Import-Package: org.apache.log4j,
  org.apache.commons.logging
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.guicecon.modules.ui.contentassist.antlr,
- org.guicecon.modules.ui.internal
+ org.guicecon.modules.ui.internal,
+ org.guicecon.modules.ui.contentassist
 Bundle-Activator: org.guicecon.modules.ui.internal.GuiceModulesActivator

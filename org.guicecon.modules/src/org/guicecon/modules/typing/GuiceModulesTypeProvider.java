@@ -6,6 +6,8 @@ import org.eclipse.xtext.xbase.typing.XbaseTypeProvider;
 import org.guicecon.modules.guiceModules.Binding;
 import org.guicecon.modules.guiceModules.GuiceModulesPackage;
 
+import com.google.inject.Singleton;
+@Singleton
 public class GuiceModulesTypeProvider extends XbaseTypeProvider {
 	
 	protected JvmTypeReference _expectedType(Binding container,

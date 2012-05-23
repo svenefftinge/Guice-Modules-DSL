@@ -3,6 +3,7 @@
  */
 package org.guicecon.modules;
 
+import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.xbase.typing.ITypeProvider;
 import org.guicecon.modules.typing.GuiceModulesTypeProvider;
 
@@ -14,5 +15,9 @@ public class GuiceModulesRuntimeModule extends org.guicecon.modules.AbstractGuic
 	@Override
 	public Class<? extends ITypeProvider> bindITypeProvider() {
 		return GuiceModulesTypeProvider.class;
+	}
+	@Override
+	public Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider() {
+		return org.guicecon.modules.naming.GuiceModulesQualifiedNameProvider.class;
 	}
 }

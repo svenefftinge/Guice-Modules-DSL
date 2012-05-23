@@ -1,9 +1,9 @@
 grammar org.guicecon.modules.GuiceModules 
 	with org.eclipse.xtext.xbase.Xbase
-
+ 
 generate guiceModules "http://www.guicecon.org/modules/GuiceModules"
 import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types
-
+  
 Module :
 	'package' packageName=QualifiedName
 	imports+=Import*
@@ -35,3 +35,6 @@ QualifiedNameWithWildCard:
 ;
 
 
+/* 
+ * key( @Named('foo') TypeProvider<String> )
+ */
