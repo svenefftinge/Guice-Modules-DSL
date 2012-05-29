@@ -80,7 +80,10 @@ public class GuiceModulesJvmModelInferrer extends AbstractModelInferrer {
                 final Procedure1<ITreeAppendable> _function_1 = new Procedure1<ITreeAppendable>() {
                     public void apply(final ITreeAppendable it) {
                       StringConcatenation _builder = new StringConcatenation();
-                      _builder.append("new \u00C7mix.name\u00C8()");
+                      _builder.append("new ");
+                      String _name = mix.getName();
+                      _builder.append(_name, "");
+                      _builder.append("()");
                       it.append(_builder);
                     }
                   };
@@ -168,7 +171,10 @@ public class GuiceModulesJvmModelInferrer extends AbstractModelInferrer {
                             boolean _notEquals = (!Objects.equal(_toInstance, null));
                             if (_notEquals) {
                               StringConcatenation _builder_5 = new StringConcatenation();
-                              _builder_5.append(".toInstance(\u00C7b.getNameForInstanceMethod\u00C8())");
+                              _builder_5.append(".toInstance(");
+                              String _nameForInstanceMethod = GuiceModulesJvmModelInferrer.this.getNameForInstanceMethod(b);
+                              _builder_5.append(_nameForInstanceMethod, "");
+                              _builder_5.append("())");
                               it.append(_builder_5);
                             } else {
                               StringConcatenation _builder_6 = new StringConcatenation();
@@ -194,7 +200,10 @@ public class GuiceModulesJvmModelInferrer extends AbstractModelInferrer {
                         EList<Module> _mixins = m.getMixins();
                         for (final Module mix : _mixins) {
                           StringConcatenation _builder = new StringConcatenation();
-                          _builder.append("\u00C7mix.name.toFirstLower\u00C8.configure(bind, usedKeys);");
+                          String _name = mix.getName();
+                          String _firstLower = StringExtensions.toFirstLower(_name);
+                          _builder.append(_firstLower, "");
+                          _builder.append(".configure(bind, usedKeys);");
                           it.append(_builder);
                         }
                       }

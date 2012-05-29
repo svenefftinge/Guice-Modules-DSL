@@ -35,7 +35,6 @@ class GuiceModulesJvmModelInferrer extends  AbstractModelInferrer {
 				members+= field
 				field.setInitializer[append('''new «mix.name»()''')]
 			}
-			
 
 			members += m.toMethod("configure",m.newTypeRef(Void::TYPE),[
 					parameters += m.toParameter("binder", m.newTypeRef(typeof(Binder)))
