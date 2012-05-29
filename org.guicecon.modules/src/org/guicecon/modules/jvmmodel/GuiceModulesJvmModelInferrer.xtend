@@ -31,10 +31,9 @@ class GuiceModulesJvmModelInferrer extends  AbstractModelInferrer {
 			members += m.toConstructor() [] 
 			
 			for( mix : m.mixins){
-				val name = m.fullyQualifiedName.toString
-				val field =  mix.toField(mix.name.toFirstLower, mix.newTypeRef(name))
+				val field =  mix.toField(mix.name.toFirstLower, mix.newTypeRef(mix.name))
 				members+= field
-				field.setInitializer[append('''new «name»()''')]
+				field.setInitializer[append('''new «mix.name»()''')]
 			}
 			
 

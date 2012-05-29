@@ -5,6 +5,7 @@ package org.guicecon.modules.ui.labeling;
 
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
+import org.eclipse.xtext.xbase.ui.labeling.XbaseLabelProvider;
 import org.guicecon.modules.guiceModules.Binding;
 import org.guicecon.modules.guiceModules.Key;
 import org.guicecon.modules.guiceModules.Module;
@@ -17,7 +18,7 @@ import com.google.inject.Inject;
  * see
  * http://www.eclipse.org/Xtext/documentation/latest/xtext.html#labelProvider
  */
-public class GuiceModulesLabelProvider extends DefaultEObjectLabelProvider {
+public class GuiceModulesLabelProvider extends XbaseLabelProvider {
 
 	@Inject
 	public GuiceModulesLabelProvider(AdapterFactoryLabelProvider delegate) {

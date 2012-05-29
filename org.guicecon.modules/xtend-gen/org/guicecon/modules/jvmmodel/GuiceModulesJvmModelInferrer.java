@@ -70,20 +70,17 @@ public class GuiceModulesJvmModelInferrer extends AbstractModelInferrer {
             EList<Module> _mixins = m.getMixins();
             for (final Module mix : _mixins) {
               {
-                QualifiedName _fullyQualifiedName = GuiceModulesJvmModelInferrer.this._iQualifiedNameProvider.getFullyQualifiedName(m);
-                final String name = _fullyQualifiedName.toString();
                 String _name = mix.getName();
                 String _firstLower = StringExtensions.toFirstLower(_name);
-                JvmTypeReference _newTypeRef_1 = GuiceModulesJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(mix, name);
+                String _name_1 = mix.getName();
+                JvmTypeReference _newTypeRef_1 = GuiceModulesJvmModelInferrer.this._jvmTypesBuilder.newTypeRef(mix, _name_1);
                 final JvmField field = GuiceModulesJvmModelInferrer.this._jvmTypesBuilder.toField(mix, _firstLower, _newTypeRef_1);
                 EList<JvmMember> _members_1 = it.getMembers();
                 GuiceModulesJvmModelInferrer.this._jvmTypesBuilder.<JvmField>operator_add(_members_1, field);
                 final Procedure1<ITreeAppendable> _function_1 = new Procedure1<ITreeAppendable>() {
                     public void apply(final ITreeAppendable it) {
                       StringConcatenation _builder = new StringConcatenation();
-                      _builder.append("new ");
-                      _builder.append(name, "");
-                      _builder.append("()");
+                      _builder.append("new \u00C7mix.name\u00C8()");
                       it.append(_builder);
                     }
                   };
@@ -171,10 +168,7 @@ public class GuiceModulesJvmModelInferrer extends AbstractModelInferrer {
                             boolean _notEquals = (!Objects.equal(_toInstance, null));
                             if (_notEquals) {
                               StringConcatenation _builder_5 = new StringConcatenation();
-                              _builder_5.append(".toInstance(");
-                              String _nameForInstanceMethod = GuiceModulesJvmModelInferrer.this.getNameForInstanceMethod(b);
-                              _builder_5.append(_nameForInstanceMethod, "");
-                              _builder_5.append("())");
+                              _builder_5.append(".toInstance(\u00C7b.getNameForInstanceMethod\u00C8())");
                               it.append(_builder_5);
                             } else {
                               StringConcatenation _builder_6 = new StringConcatenation();
@@ -200,10 +194,7 @@ public class GuiceModulesJvmModelInferrer extends AbstractModelInferrer {
                         EList<Module> _mixins = m.getMixins();
                         for (final Module mix : _mixins) {
                           StringConcatenation _builder = new StringConcatenation();
-                          String _name = mix.getName();
-                          String _firstLower = StringExtensions.toFirstLower(_name);
-                          _builder.append(_firstLower, "");
-                          _builder.append(".configure(bind, usedKeys);");
+                          _builder.append("\u00C7mix.name.toFirstLower\u00C8.configure(bind, usedKeys);");
                           it.append(_builder);
                         }
                       }
